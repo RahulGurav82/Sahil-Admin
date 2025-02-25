@@ -21,8 +21,7 @@ const AdminLogin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://netjammer.onrender.com/admin/login', credentials);
-      localStorage.setItem('adminToken', response.data.token);
+      await axios.post('https://netjammer.onrender.com/admin/login', credentials);
       navigate('/admin/dashboard');
     } catch (err) {
       setError('Invalid credentials');
@@ -33,7 +32,6 @@ const AdminLogin = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-black via-purple-900 to-black">
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <div className="grid grid-cols-1 gap-8 relative z-10">
-        {/* Cyberpunk Title */}
         <div className="text-center mb-8">
           <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 font-orbitron mb-2">
             ADMIN PORTAL
@@ -41,7 +39,6 @@ const AdminLogin = () => {
           <div className="w-32 h-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 mx-auto"></div>
         </div>
 
-        {/* Login Form */}
         <div className="backdrop-blur-lg bg-black/30 p-8 rounded-lg border border-purple-500/30 shadow-lg shadow-purple-500/20 w-96">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="relative">
@@ -76,7 +73,6 @@ const AdminLogin = () => {
           </form>
         </div>
 
-        {/* Decorative Elements */}
         <div className="absolute top-0 left-0 w-32 h-32 bg-purple-500/10 rounded-full filter blur-3xl"></div>
         <div className="absolute bottom-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full filter blur-3xl"></div>
       </div>
